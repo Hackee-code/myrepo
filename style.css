@@ -1,0 +1,118 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the game */
+.container {
+    text-align: center;
+    background-color: rgb(215, 107, 107);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative; /* Positioning context for the teddy bear */
+}
+
+
+/* Game board styles */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px auto;
+}
+
+/* Cell styles */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cell:hover {
+    background-color:lightgreen;
+}
+
+.result {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color: black;
+    background-color: mediumseagreen;
+}
+
+/* Winning cell styles */
+.cell.winner {
+    background-color: teal; /* Gold color for winning cells */
+    transform: scale(1.1); /* Slightly enlarge winning cells */
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.color-paper {
+    border-radius: 50%; /* Make them circular */
+    position: absolute;
+    opacity: 0.8; /* Initial opacity */
+    pointer-events: none; /* Allow clicks to pass through */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition for transform and opacity */
+}
+
+.color-paper.red { background-color: red; }
+.color-paper.blue { background-color: blue; }
+.color-paper.green { background-color: green; }
+.color-paper.yellow { background-color: yellow; }
+
+.teddy-bear {
+    display: none; /* Initially hide the teddy bear */
+    width: 800px; /* Increased width for the teddy bear */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 30%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(0.5); /* Center and scale down */
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition for opacity and transform */
+    z-index: 10; /* Make sure it's above other elements */
+}
+
+.teddy-bear.visible {
+    display: block; /* Show the teddy bear */
+    opacity: 1; /* Fade in */
+    transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
+}
+.teddy-bear1 {
+    display: none; /* Initially hide the teddy bear */
+    width: 800px; /* Increased width for the teddy bear */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position absolutely within the container */
+    top: 50%; /* Center vertically */
+    right: -400px; /* Position it to the right of the container */
+    transform: translateY(-50%) scale(0.5); /* Center vertically and scale down */
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition for opacity and transform */
+    z-index: 10; /* Make sure it's above other elements */
+}
+
+.teddy-bear1.visible {
+    display: block; /* Show the teddy bear */
+    opacity: 1; /* Fade in */
+    transform: translateY(-50%) scale(1); /* Scale to normal size */
+}
